@@ -51,7 +51,8 @@ function _app() {
 		{ src: "http://urucas.com/images/detail-loro.png", id: "loro"},
 		{ src: "http://urucas.com/images/detail-oruganaranja.png", id:"oruga"},
 		{ src: "http://urucas.com/images/detail-ornero.png", id:"ornero"},
-		{ src: "http://urucas.com/labs/dragndrop/img/uruca.png", id:"uruca", unique: true}
+		{ src: "http://urucas.com/labs/dragndrop/img/uruca.png", id:"uruca", unique: true},
+		{ src: "http://urucas.com/labs/dragndrop/img/urucas_purple_xsmall.png", id:"urucapurple", unique: true}
 	]
 	this.selected = null;
 	
