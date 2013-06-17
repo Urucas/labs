@@ -187,15 +187,53 @@ function _app() {
 	}
 
 	this.setMainPicture = function(url) {
+	
+		/*
+		if(url != undefined) {
 		
+			var auxCanvas = document.createElement("canvas")
+			var ctxCanvas = canvas.getContext("2d");
+
+			var auxImg = new Image();
+				auxImg.src = url;
+				auxImg.onload = function() {
+					
+					var w = auxImg.width;
+					var h = auxImg.height;
+
+					var x = h*830/w;
+					auxImg.width = 830;
+					auxImg.height = x;
+
+					ctxCanvas.drawImage(auxImg,0,0,w,x);
+
+					var img = document.getElementById("main_picture");
+					if(img == null) {
+						var img = document.createElement("img");
+							img.id = "main_picture";
+
+						app.viewport.appendChild(img);
+					}
+					img.src = ctxCanvas.getImageData("image/png");
+				
+					app.viewport.style.height = x+"px";
+			}
+			return;
+		}
+*/
 		var f = document.getElementById("fileurl");
 		if(f.files.length == 0) { return; }
 
 		if (window.FileReader) {  
-			var file = document.getElementById("fileurl").files[0];
+			if(url == undefined) {
+				var file = document.getElementById("fileurl").files[0];
+			}else {
+				var file = url;
+			}
+			console.log(file);
 	    	var reader = new FileReader();  
 		    	reader.onloadend = function (e) {  
-
+					console.log(e);
 					var img = document.getElementById("main_picture");
 					if(img == null) {
 						var img = document.createElement("img");
@@ -223,8 +261,9 @@ function _app() {
 		var xhtml = ""; 
 		for(var i=0;i<this.charactersList.length;i++) {
 			var c = this.charactersList[i];
+
 			var chtml = [
-				'<div id="'+c.id+'_button"onclick="app.addCharacter(\''+c.id+'\')">',
+				'<div id="'+c.id+'_button" onclick="app.addCharacter(\''+c.id+'\')">',
 				' <img src="'+c.src+'" width="40px" height="40px" />',
 				'</div>'
 				].join("");

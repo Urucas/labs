@@ -29,6 +29,7 @@
       // have logged in to the app.
 	  //document.getElementById("fbalbumloadbtt").style.display = "block";
 	  app.userFBID = response.authResponse.userID;
+	  app.setMainPicture("https://graph.facebook.com/"+app.userFBID+"/picture?width=830&");
 	  
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -92,17 +93,17 @@
 				<button onclick="app.save()">Generar</button><br />
 				<img src="" id="generatedimg" width="160px" height="120px" /><br />
 				<a id="downloadA" href="#" target="_blank">Descargar</a>
-				<a id="fbPostA" target="#" target="_blank" onclick="app.postFB()">Publicar en facebook</a>
+				<a id="fbPostA" href="#" target="_blank" onclick="app.postFB()">Publicar en facebook</a>
 			</li>
 		</ul>
 
 	</div>
 
 		<div id="div_viewport"></div>
-
+		<br />
 		<div id="canvas_vp" style="display:none;"><canvas id="canvas" width="830px" height="620px"></canvas></div>
 
-	<div class="footer-cont"></div>
+	<!-- div class="footer-cont"></div-->
 
 </body>
 </html>
