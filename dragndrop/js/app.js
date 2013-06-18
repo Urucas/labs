@@ -188,25 +188,13 @@ function _app() {
 
 	this.setMainPicture = function(url) {
 	
-		/*
+	
 		if(url != undefined) {
 		
-			var auxCanvas = document.createElement("canvas")
-			var ctxCanvas = canvas.getContext("2d");
-
-			var auxImg = new Image();
-				auxImg.src = url;
-				auxImg.onload = function() {
-					
-					var w = auxImg.width;
-					var h = auxImg.height;
-
-					var x = h*830/w;
-					auxImg.width = 830;
-					auxImg.height = x;
-
-					ctxCanvas.drawImage(auxImg,0,0,w,x);
-
+			var ajax = new XMLHttpRequest();
+		    ajax.open("GET","createcanvas.php?imgURL="+url,false);
+		    ajax.onreadystatechange = function() {
+				if(ajax.readyState == 4) {
 					var img = document.getElementById("main_picture");
 					if(img == null) {
 						var img = document.createElement("img");
@@ -214,13 +202,23 @@ function _app() {
 
 						app.viewport.appendChild(img);
 					}
-					img.src = ctxCanvas.getImageData("image/png");
-				
-					app.viewport.style.height = x+"px";
-			}
+					img.src = ajax.responseText;
+					img.onload = function(){ 
+						var w = img.width;
+						var h = img.height;
+
+						var x = h*830/w;
+						img.width = 830;
+						img.height = x;
+
+						app.viewport.style.height = x+"px";
+					}	
+				}
+		    }
+		    ajax.send();
 			return;
 		}
-*/
+
 		var f = document.getElementById("fileurl");
 		if(f.files.length == 0) { return; }
 
@@ -230,8 +228,7 @@ function _app() {
 			}else {
 				var file = url;
 			}
-			console.log(file);
-	    	var reader = new FileReader();  
+			var reader = new FileReader();  
 		    	reader.onloadend = function (e) {  
 					console.log(e);
 					var img = document.getElementById("main_picture");
