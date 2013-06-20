@@ -189,11 +189,10 @@ function _app() {
 
 	this.setMainPicture = function(url) {
 	
-	
 		if(url != undefined) {
 		
 			var ajax = new XMLHttpRequest();
-		    ajax.open("GET","createcanvas.php?imgURL="+url,false);
+		    ajax.open("GET","imagetobinary.php?imgURL="+url,false);
 		    ajax.onreadystatechange = function() {
 				if(ajax.readyState == 4) {
 					var img = document.getElementById("main_picture");
@@ -203,6 +202,7 @@ function _app() {
 
 						app.viewport.appendChild(img);
 					}
+					console.log(ajax.responseText);
 					img.src = ajax.responseText;
 					img.onload = function(){ 
 						var w = img.width;
@@ -337,7 +337,7 @@ function _app() {
 			var img = canvas.toDataURL("image/png");
 			document.getElementById("generatedimg").src = img;
 			document.getElementById("downloadA").setAttribute("href",img);
-			app.postPicture(img);
+			// app.postPicture(img);
 		}
 	}
 }
