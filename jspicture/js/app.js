@@ -204,11 +204,9 @@ function _app() {
 						var w = img.width;
 						var h = img.height;
 
-						var x = h*830/w;
-						img.width = 830;
-						img.height = x;
+						app.viewport.style.height = h+"px";
+						app.viewport.style.width = w+"px";
 
-						app.viewport.style.height = x+"px";
 
 						app.save();
 					}	
@@ -229,7 +227,7 @@ function _app() {
 			}
 			var reader = new FileReader();  
 		    	reader.onloadend = function (e) {  
-					console.log(e);
+					
 					var img = document.getElementById("main_picture");
 					if(img == null) {
 						var img = document.createElement("img");
@@ -242,12 +240,9 @@ function _app() {
 						var w = img.width;
 						var h = img.height;
 
-						var x = h*830/w;
-						img.width = 830;
-						img.height = x;
-
-					app.viewport.style.height = x+"px";
-					app.save();
+						app.viewport.style.height = h+"px";
+						app.viewport.style.width = w+"px";
+						app.save();
 					}				
 				};  
 		    reader.readAsDataURL(file);  
@@ -271,10 +266,6 @@ function _app() {
 	
 	this.save = function() {
 	
-		var canvas = document.getElementById("canvas");
-	
-		var context = canvas.getContext('2d');
-		
 		var vp = this.viewport;
 		var baseimage = new Image();
 			baseimage.src = document.getElementById("main_picture").src;
@@ -282,9 +273,16 @@ function _app() {
 		var that = this;
 		baseimage.onload = function(e) {
 
-			var x = baseimage.height*830/ baseimage.width;
+			var canvas = document.createElement("canvas");
+			var context = canvas.getContext('2d');
+		
+			var w = baseimage.width;
+			var h = baseimage.height;
 
-			context.drawImage(baseimage, 0, 0, 830, x);
+			canvas.width = w; canvas.height = h;
+			context.clearRect(0, 0, canvas.width, canvas.height);
+
+			context.drawImage(baseimage, 0, 0, w, h);
 
 			var characters = that.characters;
 			for(var i=0; i < characters.length;i++){
@@ -293,7 +291,6 @@ function _app() {
 				var x = d.offsetLeft - vp.offsetLeft;				
 				var	w = d.offsetWidth;
 				var	h = d.offsetHeight;
-				
 				context.drawImage(d, x, y, w, h);
 			}
 
