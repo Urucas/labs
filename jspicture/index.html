@@ -75,17 +75,17 @@
 
 	<ul>
 			<li>
-				<label><span>1</span> Select your picture!</label><br />
+				<label><span>1.</span> Select your picture!</label><br />
 				<input type="file" id="fileurl" onchange="app.setMainPicture()"/>
 				<fb:login-button show-faces="true" width="200" max-rows="1" perms="publish_stream, photo_upload, user_photos"></fb:login-button>
 			</li>
 			<li>
-				<label><span>2</span>Drag the JS logo to the perfect position!</label>
+				<label><span>2.</span> Drag the JS logo to the perfect position!</label>
 				<div id="charactersButtons"></div><div style="clear:both"></div>
 				<label>Size</label><input id="characterRange" type="range" min="50" max="120" value="250" onchange="app.resizeCharacter(this.value)" /><br />
 			</li>
 			<li>
-				<label><span>3</span>Generate the image! Download it!</label><br />
+				<label><span>3.</span> Generate the image! Download it!</label><br />
 				<button onclick="app.save()">Generar</button><br />
 				<img src="" id="generatedimg" width="160px" height="auto" /><br />
 				<a id="downloadA" href="#" target="_blank">Download</a>

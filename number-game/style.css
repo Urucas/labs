@@ -1,0 +1,72 @@
+body {
+	margin:0; padding:0;
+	width:100%;
+	height:100%;
+	background: #dfdfdf url("paper-02.fw.png"); 
+	background-size:cover;
+	font-family:Verdana;
+	font-size:12px;
+}
+
+.logo-urucas {
+width: 100px;
+height: 50px;
+background-image: url('http://urucas.com/images/logo.png');
+background-repeat: no-repeat;
+background-size: 100px 50px;
+cursor: pointer;
+}
+
+* {
+	font-family: 'Joti One', cursive;
+}
+
+p {
+	font-size:16px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-test {
+	font-size:26px;
+	height:60px;
+	width:60px;
+	text-align:center;
+	background:none;
+	border:1px solid #000;
+	margin:1px;
+}
+
+.forkme {
+	background:url("http://urucas.com/labs/halloween/img/github.png") no-repeat;
+	background-size:150px 150px;
+	width:150px;
+	height:150px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+.x-marks-the-spot {
+	font-size:30px;
+	color:red;
+	display:none;
+}
+
+.paper-sheet {
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	text-align:center;
+/*	background:url('paper-02.jpg'); */
+}
+
+#u-r-a-winner {
+	display:none;
+	color:green;
+}

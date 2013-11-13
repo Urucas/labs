@@ -280,11 +280,11 @@ function _app() {
 	this.postPicture = function(canvasData) {
 		
 		var ajax = new XMLHttpRequest();
-		    ajax.open("POST",'savecanvas.php',false);
+		    ajax.open("POST",'imagetobinary.php',false);
 		    ajax.onreadystatechange = function() {
 				if(ajax.readyState == 4) {
                		var response = JSON.parse(ajax.responseText);
-					app.lastFilename = response.filename
+					app.lastFilename = response;
 				}
 		    }
 		    ajax.setRequestHeader('Content-Type', 'application/upload');
