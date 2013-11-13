@@ -71,6 +71,7 @@ for(var i = 0; i < inputs.length; i++) {
 		document.querySelector(".x-marks-the-spot").style.display = "none";
 	}
 	inputs[i].onkeyup = function(e) {
+		console.log(app.values);
 		document.querySelector(".x-marks-the-spot").style.display = "none";
 		pos = e.target.getAttribute("pos");
 		app.clear(pos);
@@ -86,7 +87,7 @@ for(var i = 0; i < inputs.length; i++) {
 		if((_pos = app.test(pos, e.target.value)) !== false) {
 			// alert("Perdiste");
 			for(var j=0;j<inputs.length;j++) {
-				inputs[j].value = "";
+			//	inputs[j].value = "";
 			}
 			
 			var _x  = document.querySelector(".x-marks-the-spot");
@@ -97,7 +98,8 @@ for(var i = 0; i < inputs.length; i++) {
 			for(var j=0;j<_ints.length;j++) {
 				_ints[j].innerText = app.tries;
 			}
-			app.clear();
+			document.getElementById("test-"+pos).value = "";
+			app.clear(pos);
 			return;
 		}
 		app.set(pos, e.target.value);
@@ -116,10 +118,10 @@ for(var i = 0; i < inputs.length; i++) {
 /************           *           **************/
 /*************************************************/
 /*          *           *           *            */
-/*     8    *     1     *     7     *      2     */
+/*     7    *     1     *     8     *      2     */
 /*          *           *           *            */
 /*************************************************/
 /************           *           **************/
-/************    6      *   4       **************/
+/************    4      *    6      **************/
 /************           *           **************/
 /*************************************************/

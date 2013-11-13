@@ -11,7 +11,7 @@ window.fbAsyncInit = function() {
 	// init the FB JS SDK
 	FB.init({
 appId      : '512812472100974',                        // App ID from the app dashboard
-channelUrl : '//urucas.com/labs/halloween/', // Channel file for x-domain comms
+channelUrl : '//urucas.com/labs/number-game/', // Channel file for x-domain comms
 status     : true,                                 // Check Facebook Login status
 fileUploade: true,
 xfbml      : true                                  // Look for social plugins on the page
@@ -69,11 +69,11 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
 	<a href="http://urucas.com" target="_blank"><div class="logo-urucas"></div></a>
 </div>
 
-
+<img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn2/1378058_612479395481161_1529788474_n.png" style="display:none;" />
 
 <div class="paper-sheet">
 
-	<p>El juego es simple, ingresa los numeros del 1 al 8 en los casilleros con una sola condicion: ningun casillero puede tener en un casillero proximo(al lado, abajo o en diagonal) un numero cuya diferencia con este sea 1.<br /><br /> Por ej. Si pones en el primer casillero el 1 en el casillero de al lado no puede estar el 2.
+	<p>El juego es simple, ingresa los numeros del 1 al 8 en los casilleros con una sola condicion: ningun casillero puede tener en un casillero proximo(al lado, abajo o en diagonal) un numero cuya diferencia con este sea 1.<br /><br /> Por ej. Si pones en el primer casillero el 1 en el casillero de al lado no puede estar el 2(o en el de abajo o en cualquiera de los dos que toca en diagonal).
 	
 	<br /><br />
 	<div align="center">
@@ -81,34 +81,34 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-				<input type="number" class="input-test" id="test-1" pos="0" />
+				<input type="number" class="input-test" id="test-0" pos="0" />
 			</td>
 			<td>
-				<input type="number" class="input-test" id="test-2" pos="1" />
+				<input type="number" class="input-test" id="test-1" pos="1" />
 			</td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td>
-				<input type="number" class="input-test" id="test-3" pos="2" />
+				<input type="number" class="input-test" id="test-2" pos="2" />
 			</td>
 			<td>
-				<input type="number" class="input-test" id="test-4" pos="3" />
+				<input type="number" class="input-test" id="test-3" pos="3" />
 			</td>
 			<td>
-				<input type="number" class="input-test" id="test-5" pos="4" />
+				<input type="number" class="input-test" id="test-4" pos="4" />
 			</td>
 			<td>
-				<input type="number" class="input-test" id="test-6" pos="5" />
+				<input type="number" class="input-test" id="test-5" pos="5" />
 			</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
 			<td>
-				<input type="number" class="input-test" id="test-7" pos="6" />
+				<input type="number" class="input-test" id="test-6" pos="6" />
 			</td>
 			<td>
-				<input type="number" class="input-test" id="test-8" pos="7" />
+				<input type="number" class="input-test" id="test-7" pos="7" />
 			</td>
 			<td>&nbsp;</td>
 		</tr>
@@ -118,7 +118,7 @@ FB.Event.subscribe('auth.authResponseChange', function(response) {
 	<p>Intentos: <span class="intentos">1</span></p>
 	<p class="x-marks-the-spot">Fallaste</p>
 
-	<p id="u-r-a-winner">Bien hecho! Has resuelto el juego en <span class="intentos"></span>1 intentos.</p>
+	<p id="u-r-a-winner">Bien hecho! Has resuelto el juego en <span class="intentos">1</span> intentos.</p>
 	
 	<div class="social" style="width:100%">
 	<div class="fb-share-button" data-href="http://urucas.com/labs/numbergame" data-type="button_count"></div> <div class="fb-like" data-href="http://urucas.com/labs/number-game/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
